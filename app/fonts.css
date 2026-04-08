@@ -1,0 +1,11 @@
+@font-face{
+    font-family: "Inter";
+    src:local("Inter-VariableFont"),
+    url('./assets/fonts/inter/Inter-VariableFont.ttf') 
+}
+
+@font-face{
+    font-family: "Schibsted-Grotesk";
+    src:local("SchibstedGrotesk-VariableFont"),
+    url('./assets/fonts/schibsted-grotesk/SchibstedGrotesk-VariableFont.ttf') 
+}
