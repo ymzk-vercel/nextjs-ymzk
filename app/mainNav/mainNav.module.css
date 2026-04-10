@@ -12,6 +12,7 @@
 }
 .nav-option {
   position: relative;
+  padding-right: 30px;
   width: fit-content;
   cursor: pointer;
   list-style-type: none;
