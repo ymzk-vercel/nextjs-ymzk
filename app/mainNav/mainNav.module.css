@@ -20,9 +20,3 @@
   text-decoration: none;
 }
 
-.option-line {
-  position: absolute;
-  height: 1px;
-  width: 100%;
-  background-color: var(--foreground);
-}
