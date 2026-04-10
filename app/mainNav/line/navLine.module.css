@@ -1,0 +1,17 @@
+.option-line-container {
+  position: absolute;
+  height: 1px;
+  width: 0px;
+  right: 0;
+  transform-origin: right right;
+}
+
+.option-line {
+  position: absolute;
+  height: 1px;
+  width: 0px;
+  right: 0;
+  background-color: var(--foreground);
+  transition: 1s;
+  transform-origin: right right;
+}
