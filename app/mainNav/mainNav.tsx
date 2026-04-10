@@ -18,20 +18,28 @@ export default function mainNav() {
   const params = usePathname(); 
 
   useEffect(()=>{
-    const navOptionsID = document.getElementById('nav-options');
-    const optionID = document.getElementById(params.slice(1));
+    function updateLayout() {
+      const navOptionsID = document.getElementById('nav-options');
+      const optionID = document.getElementById(params.slice(1));
 
-    if (navOptionsID === null || optionID === null) return;
+      if (navOptionsID && optionID) {
+        setContainerProperties({
+          containerWidth: navOptionsID.getBoundingClientRect().width,
+          optionWidth: optionID.getBoundingClientRect().width,
+          optionHeight: optionID.getBoundingClientRect().height,
+          optionPosY: optionID.offsetTop
+        });
+      }
+    }
+    
+    updateLayout();
+    window.addEventListener('resize', updateLayout);
 
-    setContainerProperties({
-      containerWidth: navOptionsID.getBoundingClientRect().width,
-      optionWidth: optionID.getBoundingClientRect().width,
-      optionHeight: optionID.getBoundingClientRect().height,
-      optionPosY: optionID.offsetTop
-    });
+    return () => {
+      window.removeEventListener('resize', updateLayout);
+    }
 
-  }, []);
-  
+  }, [params]);
 
   return (
     <ul id={'nav-options'} className={styles['nav-options']}>
@@ -44,7 +52,7 @@ export default function mainNav() {
       <li id={'about'} className={styles['nav-option']}>
         <Link href="/about" className={styles['nav-item']}>ABOUT</Link>
       </li>
-      <NavLine containerProperties={containerProperties} />
+      <NavLine key={params} containerProperties={containerProperties} />
     </ul>
   );
 }
