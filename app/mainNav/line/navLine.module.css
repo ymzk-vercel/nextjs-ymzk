@@ -3,7 +3,9 @@
   height: 1px;
   width: 0px;
   right: 0;
+  transition: 0s;
   transform-origin: right right;
+  z-index: 0;
 }
 
 .option-line {
@@ -12,6 +14,6 @@
   width: 0px;
   right: 0;
   background-color: var(--foreground);
-  transition: 1s;
+  transition: .5s;
   transform-origin: right right;
 }
