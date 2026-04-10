@@ -8,12 +8,15 @@
   font-size: var(--fs-nav-options);
   font-family: var(--font-inter);
   font-weight: 400;
+  overflow: hidden;
 }
 .nav-option {
   position: relative;
   width: fit-content;
   cursor: pointer;
   list-style-type: none;
+  background-color: #1c1b22;
+  z-index: 1;
 }
 .nav-item {
   color: inherit;
