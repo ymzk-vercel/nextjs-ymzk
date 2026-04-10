@@ -2,7 +2,7 @@
 
 import styles from "./navLine.module.css";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect } from "react";
 
 interface ContainerProperties {
   containerWidth: number,
@@ -12,18 +12,18 @@ interface ContainerProperties {
 }
 
 export default function NavLine({containerProperties} : {containerProperties : ContainerProperties}) {
-  const [currentParams, setCurrentParams] = useState('/works');
 
   // Returns with /[slug].
   const params = usePathname(); 
   
-  const {containerWidth, optionWidth, optionHeight, optionPosY} = containerProperties;
-  const paddingLeft = 30;
+  useEffect(()=>{
+    console.log('hi')
+  }, [])
   
-  const width = containerWidth - optionWidth - paddingLeft;
+  const {containerWidth, optionWidth, optionHeight, optionPosY} = containerProperties;
+  
+  const width = containerWidth - optionWidth;
   const posY = optionPosY + (optionHeight / 2);
-
-  console.log(posY)
 
   const styleContainer = {
     width: `${width}px`,
