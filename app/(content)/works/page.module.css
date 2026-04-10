@@ -5,6 +5,7 @@
 
 .items-container {
   padding-block: 190px;
+  padding-right: 5%;
   position: absolute;
   display: flex;
   flex-direction: column;
