@@ -2,7 +2,7 @@
 
 import styles from "./mainNav.module.css";
 import Link from "next/link";
-import NavLine from "./line/navLine";
+import NavLine from "./navLine/navLine";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
