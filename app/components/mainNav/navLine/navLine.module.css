@@ -15,16 +15,5 @@
   right: 0;
   background-color: var(--foreground);
   transform-origin: right;
-  animation: lineGrow .6s cubic-bezier(0.075, 0, 0.165, .7) forwards;
 }
 
-@keyframes lineGrow {
-  from {
-    transform: scaleX(0);
-    width: 100%;
-  }
-  to {
-    transform: scaleX(1);
-    width: 100%
-  }
-}

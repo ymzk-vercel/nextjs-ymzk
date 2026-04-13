@@ -1,6 +1,8 @@
 'use client';
 
 import styles from "./navLine.module.css";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 interface ContainerProperties {
   containerWidth: number,
@@ -9,9 +11,12 @@ interface ContainerProperties {
   optionPosY: number
 }
 
-export default function NavLine({containerProperties} : {containerProperties : ContainerProperties}) {
+export default function NavLine({paramKey, containerProperties} : {paramKey:string, containerProperties : ContainerProperties}) {
+  const [lineAnim, setLineAnim] = useState({animation: 'none'});
   const {containerWidth, optionWidth, optionHeight, optionPosY} = containerProperties;
-  
+
+  const params = usePathname(); 
+
   const width = containerWidth - optionWidth;
   const posY = optionPosY + (optionHeight / 2);
 
@@ -20,9 +25,20 @@ export default function NavLine({containerProperties} : {containerProperties : C
     top: `${posY}px`
   };
 
+  useEffect(()=>{
+    if (params.slice(1) === paramKey) {
+      setLineAnim({animation: 'lineGrow .6s cubic-bezier(0.075, 0, 0.165, .7) forwards'});
+    }
+    else {
+      setLineAnim({animation: 'lineShrink .6s cubic-bezier(0.075, 0, 0.165, .7) forwards'});
+    }
+  }, [params])
+
   return (
     <span style={styleContainer} className={styles['option-line-container']}>
-      <span className={styles['option-line']}></span>
+      <span style={lineAnim} className={styles['option-line']}></span>
     </span>
   );
 }
+
+  // animation: lineGrow .6s cubic-bezier(0.075, 0, 0.165, .7) forwards;

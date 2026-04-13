@@ -52,3 +52,25 @@ img, picture, svg, video {
     color-scheme: dark;
   }
 }
+
+@keyframes lineGrow {
+  from {
+    transform: scaleX(0);
+    width: 100%;
+  }
+  to {
+    transform: scaleX(1);
+    width: 100%
+  }
+}
+
+@keyframes lineShrink {
+  from {
+    transform: scaleX(1);
+    width: 100%;
+  }
+  to {
+    transform: scaleX(0);
+    width: 100%
+  }
+}

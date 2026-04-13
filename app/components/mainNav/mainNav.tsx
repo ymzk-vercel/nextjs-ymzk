@@ -7,7 +7,19 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function mainNav() {
-  const [containerProperties, setContainerProperties] = useState({
+  const [worksLineProperties, setWorksLineProperties] = useState({
+    containerWidth: 0,
+    optionWidth: 0,
+    optionHeight: 0,
+    optionPosY: 0
+  });
+  const [blogLineProperties, setBlogLineProperties] = useState({
+    containerWidth: 0,
+    optionWidth: 0,
+    optionHeight: 0,
+    optionPosY: 0
+  });
+  const [aboutLineProperties, setAboutLineProperties] = useState({
     containerWidth: 0,
     optionWidth: 0,
     optionHeight: 0,
@@ -20,14 +32,28 @@ export default function mainNav() {
   useEffect(()=>{
     function updateLineContainer() {
       const navOptionsID = document.getElementById('nav-options');
-      const optionID = document.getElementById(params.slice(1));
+      const worksID = document.getElementById('works');
+      const blogID = document.getElementById('blog');
+      const aboutID = document.getElementById('about');
 
-      if (navOptionsID && optionID) {
-        setContainerProperties({
+      if (navOptionsID && worksID && blogID && aboutID) {
+        setWorksLineProperties({
           containerWidth: navOptionsID.getBoundingClientRect().width,
-          optionWidth: optionID.getBoundingClientRect().width,
-          optionHeight: optionID.getBoundingClientRect().height,
-          optionPosY: optionID.offsetTop
+          optionWidth: worksID.getBoundingClientRect().width,
+          optionHeight: worksID.getBoundingClientRect().height,
+          optionPosY: worksID.offsetTop
+        });
+        setBlogLineProperties({
+          containerWidth: navOptionsID.getBoundingClientRect().width,
+          optionWidth: blogID.getBoundingClientRect().width,
+          optionHeight: blogID.getBoundingClientRect().height,
+          optionPosY: blogID.offsetTop
+        });
+        setAboutLineProperties({
+          containerWidth: navOptionsID.getBoundingClientRect().width,
+          optionWidth: aboutID.getBoundingClientRect().width,
+          optionHeight: aboutID.getBoundingClientRect().height,
+          optionPosY: aboutID.offsetTop
         });
       }
     }
@@ -52,7 +78,9 @@ export default function mainNav() {
       <li id={'about'} className={styles['nav-option']}>
         <Link href="/about" className={styles['nav-item']}>ABOUT</Link>
       </li>
-      <NavLine key={params} containerProperties={containerProperties} />
+      <NavLine paramKey={'works'} containerProperties={worksLineProperties} />
+      <NavLine paramKey={'blog'} containerProperties={blogLineProperties} />
+      <NavLine paramKey={'about'} containerProperties={aboutLineProperties} />
     </ul>
   );
 }
