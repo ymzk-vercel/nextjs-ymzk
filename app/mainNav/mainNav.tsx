@@ -18,7 +18,7 @@ export default function mainNav() {
   const params = usePathname(); 
 
   useEffect(()=>{
-    function updateLayout() {
+    function updateLineContainer() {
       const navOptionsID = document.getElementById('nav-options');
       const optionID = document.getElementById(params.slice(1));
 
@@ -32,11 +32,11 @@ export default function mainNav() {
       }
     }
     
-    updateLayout();
-    window.addEventListener('resize', updateLayout);
+    updateLineContainer();
+    window.addEventListener('resize', updateLineContainer);
 
     return () => {
-      window.removeEventListener('resize', updateLayout);
+      window.removeEventListener('resize', updateLineContainer);
     }
 
   }, [params]);
