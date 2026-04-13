@@ -1,5 +1,5 @@
-import styles from './content.module.css';
-import MainNav from "../mainNav/mainNav";
+import styles from './layout.module.css';
+import MainNav from "../components/mainNav/mainNav";
 import { Suspense } from 'react';
 
 export default async function ContentLayout({
@@ -16,9 +16,18 @@ export default async function ContentLayout({
           <MainNav />
         </nav>
         <Suspense fallback={<>Fetch Failed</>}>
-          {children}
+          <main className={styles['main-container']}>
+            {children}
+          </main>
         </Suspense>
       </div>
+      <footer className={styles['footer-container']}>
+        <div className={styles['footer-items']}>
+          <a>Blusky.</a>
+          <a>X.</a>
+          <a>Discord.</a>
+        </div>
+      </footer>
     </>
   );
 }
