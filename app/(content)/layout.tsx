@@ -23,9 +23,9 @@ export default async function ContentLayout({
       </div>
       <footer className={styles['footer-container']}>
         <div className={styles['footer-items']}>
-          <a>Blusky.</a>
-          <a>X.</a>
-          <a>Discord.</a>
+          <a href=''>Blusky.</a>
+          <a href=''>X.</a>
+          <a href=''>Discord.</a>
         </div>
       </footer>
     </>
