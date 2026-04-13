@@ -1,9 +1,11 @@
 :root {
   --background: #F0ECEB;
   --foreground: #1c1b22;
-  color: var(--foreground);
 
-  --color-gray: #E2DEDC;
+  color: var(--foreground);
+  background-color: var(--background);
+
+  --color-gray: #e2dedc79;
 
   --fs-header: 64px;
   --fs-nav-options: 20px;
@@ -15,7 +17,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #2D2D2D;
+    --background: #1c1b22;
     --foreground: #F0ECEB;
   }
 }
