@@ -47,20 +47,19 @@
   background-color: white;
 }
 .item:hover {
+  color: var(--foreground);
   background-color: var(--color-gray);
   transition: .1s ease-in;
+  mix-blend-mode: difference;
 }
 
 .date {
   flex-shrink: 1;
   min-width: 100px;
-  mix-blend-mode: difference;
 }
 .title {
   flex-grow: 7;
-  mix-blend-mode: difference;
 }
 .type {
   flex-grow: 0;
-  mix-blend-mode: difference;
 }
