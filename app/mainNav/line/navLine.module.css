@@ -4,7 +4,7 @@
   width: 0px;
   right: 0;
   transition: 0s;
-  transform-origin: right right;
+  transform-origin: right;
   z-index: 0;
 }
 
@@ -14,6 +14,17 @@
   width: 0px;
   right: 0;
   background-color: var(--foreground);
-  transition: .5s;
-  transform-origin: right right;
+  transform-origin: right;
+  animation: lineGrow .6s cubic-bezier(0.075, 0, 0.165, .7) forwards;
+}
+
+@keyframes lineGrow {
+  from {
+    transform: scaleX(0);
+    width: 100%;
+  }
+  to {
+    transform: scaleX(1);
+    width: 100%
+  }
 }
