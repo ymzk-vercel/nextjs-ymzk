@@ -1,5 +1,6 @@
 import styles from './content.module.css';
 import MainNav from "../mainNav/mainNav";
+import { Suspense } from 'react';
 
 export default async function ContentLayout({
   children,
@@ -14,7 +15,9 @@ export default async function ContentLayout({
           <h1 className={styles['nav-header']}>HEAD</h1>
           <MainNav />
         </nav>
-        {children}
+        <Suspense fallback={<>Fetch Failed</>}>
+          {children}
+        </Suspense>
       </div>
     </>
   );
