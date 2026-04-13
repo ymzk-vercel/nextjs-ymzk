@@ -1,8 +1,3 @@
-.main-container {
-  flex-grow: 1;
-  position: relative;
-}
-
 .items-container {
   padding-block: 190px;
   padding-right: 5%;
