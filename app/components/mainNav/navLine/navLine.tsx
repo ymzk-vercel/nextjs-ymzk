@@ -2,7 +2,7 @@
 
 import styles from "./navLine.module.css";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { CSSProperties, useEffect, useState } from "react";
 
 interface ContainerProperties {
   containerWidth: number,
@@ -12,7 +12,7 @@ interface ContainerProperties {
 }
 
 export default function NavLine({paramKey, containerProperties} : {paramKey:string, containerProperties : ContainerProperties}) {
-  const [lineAnim, setLineAnim] = useState({animation: 'none'});
+  const [lineAnim, setLineAnim] = useState<CSSProperties>({visibility: 'hidden', animation: 'none'});
   const {containerWidth, optionWidth, optionHeight, optionPosY} = containerProperties;
 
   const params = usePathname(); 
@@ -26,12 +26,17 @@ export default function NavLine({paramKey, containerProperties} : {paramKey:stri
   };
 
   useEffect(()=>{
-    if (params.slice(1) === paramKey) {
-      setLineAnim({animation: 'lineGrow .6s cubic-bezier(0.075, 0, 0.165, .7) forwards'});
+    function animate() {
+      if (params.slice(1) === paramKey) {
+        setLineAnim({visibility: 'visible', animation: 'lineGrow .6s cubic-bezier(0.075, 0, 0.165, .7) forwards'});
+      }
+      else {
+        setLineAnim({visibility: 'hidden', animation: 'lineShrink .6s cubic-bezier(0.075, 0, 0.165, .7) forwards'});
+      }
     }
-    else {
-      setLineAnim({animation: 'lineShrink .6s cubic-bezier(0.075, 0, 0.165, .7) forwards'});
-    }
+
+    animate();
+
   }, [params])
 
   return (

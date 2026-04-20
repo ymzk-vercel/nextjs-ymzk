@@ -15,5 +15,6 @@
   right: 0;
   background-color: var(--foreground);
   transform-origin: right;
+  transition: .5s;
 }
 
