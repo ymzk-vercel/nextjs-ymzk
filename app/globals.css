@@ -1,6 +1,6 @@
 :root {
   --background: #F0ECEB;
-  --foreground: #1c1b22;
+  --foreground: #0a0a0c;
 
   color: var(--foreground);
   background-color: var(--background);
@@ -17,7 +17,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #1c1b22;
+    --background: #0a0a0c;
     --foreground: #F0ECEB;
   }
 }
@@ -36,6 +36,10 @@ body {
   min-height: 100vh;
   overflow: hidden;
   font-family: var(--font-schibstedGrotesk);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-inter);
 }
 
 p {
@@ -68,9 +72,32 @@ img, picture, svg, video {
   from {
     transform: scaleX(1);
     width: 100%;
+    opacity: 1;
   }
   to {
     transform: scaleX(0);
-    width: 100%
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes hideTransition {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
   }
 }
