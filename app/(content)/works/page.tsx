@@ -11,8 +11,12 @@ export default async function Page() {
 
   const {data: works} = await sanityFetch({query: POSTS_QUERY});
 
+  const style = {
+    animation: 'fadeIn .5s ease-in forwards'
+  };
+
   return (
-    <div className={styles['items-container']}>
+    <div style={style} className={styles['items-container']}>
       {works.map((works:SanityDocument)=>{
         const displayDate = works.publishedAt.slice(0,7).replace(/-/g, "."); //trim last three digits, turn - to .
         return (

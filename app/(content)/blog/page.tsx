@@ -8,8 +8,12 @@ export default async function Page() {
 
   // const {data: works} = await sanityFetch({query: POSTS_QUERY});
 
+  const style = {
+    animation: 'fadeIn .5s ease-in forwards'
+  };
+
   return (
-    <div className={styles['items-container']}>
+    <div style={style} className={styles['items-container']}>
       TEST
     </div>
   )
