@@ -1,6 +1,5 @@
 import styles from './layout.module.css';
 import MainNav from "../components/mainNav/mainNav";
-import PageTransition from '../components/pageTransition/pageTransition';
 import { Suspense } from 'react';
 
 export default async function ContentLayout({
