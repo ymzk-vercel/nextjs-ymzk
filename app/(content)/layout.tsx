@@ -1,5 +1,6 @@
 import styles from './layout.module.css';
 import MainNav from "../components/mainNav/mainNav";
+import PageTransition from '../components/pageTransition/pageTransition';
 import { Suspense } from 'react';
 
 export default async function ContentLayout({
@@ -15,11 +16,11 @@ export default async function ContentLayout({
           <h1 className={styles['nav-header']}>HEAD</h1>
           <MainNav />
         </nav>
-        <Suspense fallback={<>Fetch Failed</>}>
-          <main className={styles['main-container']}>
+        <main className={styles['main-container']}>
+          <Suspense fallback={<>Fetch Failed</>}>
             {children}
-          </main>
-        </Suspense>
+          </Suspense>
+        </main>
       </div>
       <footer className={styles['footer-container']}>
         <div className={styles['footer-items']}>

@@ -33,9 +33,9 @@
 }
 
 .footer-items {
-  padding-right: calc(10% - 10px);
+  padding-right: calc(5% - 35px);
   display: flex;
-  gap: 10px;
+  gap: 30px;
   justify-content: end;
 }
 .footer-items > * {
