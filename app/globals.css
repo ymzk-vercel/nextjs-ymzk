@@ -5,11 +5,13 @@
   color: var(--foreground);
   background-color: var(--background);
 
+  --color-black: #0a0a0c;
   --color-gray: #e2dedc79;
 
   --fs-header: 64px;
   --fs-nav-options: 20px;
   --fs-body: 18px;
+  --fs-worktype: 12px;
 
   --font-inter: "Inter";
   --font-schibstedGrotesk: "Schibsted-Grotesk";
@@ -36,10 +38,6 @@ body {
   min-height: 100vh;
   overflow: hidden;
   font-family: var(--font-schibstedGrotesk);
-}
-
-h1, h2, h3 {
-  font-family: var(--font-inter);
 }
 
 p {
