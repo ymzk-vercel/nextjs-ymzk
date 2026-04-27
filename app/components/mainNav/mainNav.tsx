@@ -78,6 +78,7 @@ export default function mainNav() {
       <li id={'about'} className={styles['nav-option']}>
         <Link href="/about" className={styles['nav-item']}>ABOUT</Link>
       </li>
+
       <NavLine paramKey={'works'} containerProperties={worksLineProperties} />
       <NavLine paramKey={'blog'} containerProperties={blogLineProperties} />
       <NavLine paramKey={'about'} containerProperties={aboutLineProperties} />
