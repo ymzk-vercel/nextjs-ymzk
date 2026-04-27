@@ -16,7 +16,7 @@ export default async function ContentLayout({
           <MainNav />
         </nav>
         <main className={styles['main-container']}>
-          <Suspense fallback={<>Fetch Failed</>}>
+          <Suspense fallback={<>Loading</>}>
             {children}
           </Suspense>
         </main>
