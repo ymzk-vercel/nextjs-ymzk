@@ -1,5 +1,7 @@
 import styles from './worksPopUp.module.css';
 import { RedirectBig, RedirectSmall } from '../svgIcons/svgIcons';
+import { RiCloseLargeLine } from "react-icons/ri";
+
 import { type Works } from '@/sanity/lib/types';
 
 export default function WorksPopUp({
@@ -30,7 +32,9 @@ export default function WorksPopUp({
       <div onClick={displayPopUp} className={styles['popup-shadow']}></div>
       
       <div className={styles['popup-container']}>
-        <div onClick={displayPopUp} className={styles['close-button']}></div>
+        <div onClick={displayPopUp} className={styles['close-button']}>
+          <RiCloseLargeLine />
+        </div>
 
         <div className={styles['popup-content-wrapper']}>
           <div className={styles['popup-header']}>
@@ -59,7 +63,10 @@ export default function WorksPopUp({
           </div>
         </div>
         
-        <div className={styles['border-lines']}></div>
+        <div className={styles['border-lines']}>
+          <span className={styles['vertical']}></span>
+          <span className={styles['horizontal']}></span>
+        </div>
       </div>
     </div>
   )
