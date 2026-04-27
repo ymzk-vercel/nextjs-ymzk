@@ -2,7 +2,7 @@ import styles from './page.module.css';
 import { type SanityDocument } from "next-sanity";
 import { sanityFetch } from '@/sanity/lib/live';
 
-const POSTS_QUERY = ``;
+const ABOUT_QUERY = ``;
 
 export default async function Page() {
 
