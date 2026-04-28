@@ -22,49 +22,47 @@ export default function WorksContent({data}:{data : SanityDocument}) {
 
   useEffect(()=>{
     // Get values
-    const parentContainer = document.getElementById('works-container');
-    const container = document.getElementById('items-container');
-    const topLimit = document.getElementById('nav-container')?.getBoundingClientRect().bottom;
+    const worksContainer = document.getElementById('works-container');
+    const scrollTrack = document.getElementById('items-container');
     
-    if (container && parentContainer && topLimit) {
-      const containerRect = container.getBoundingClientRect();
-      const parentRect = parentContainer.getBoundingClientRect();
-      const bottomLimit =  (-1 * container.scrollHeight);
+    if (!scrollTrack && !worksContainer) return;
+
+    function scrollEvent(event:WheelEvent) {
+      const containerRect = scrollTrack?.getBoundingClientRect();
+      const parentRect = worksContainer?.getBoundingClientRect();
+      const bottomLimit =  (-1 * scrollTrack!.scrollHeight);
       
       // get view height of element AND actual height
-      console.log('height',container.scrollHeight)
+      console.log('height',scrollTrack?.scrollHeight)
       console.log('bottomlimit',bottomLimit)
       console.log('offset',containerTrack.offsetY)
-      console.log('containerbot',containerRect.bottom)
+      console.log('containerbot',containerRect?.bottom)
 
-      function scrollTrack(event:WheelEvent) {
-        if (event.deltaY > 0){ 
-          // scroll down
-          if (containerTrack.offsetY >= bottomLimit) {
-            setContainerTrack({
-              ...containerTrack,
-              offsetY: containerTrack.offsetY - 30
-            });
-          }
-        } else { // scroll up
-          if (containerTrack.offsetY <= -30) {
-            setContainerTrack({
-              ...containerTrack,
-              offsetY: containerTrack.offsetY + 30
-            });
-          }
+      if (event.deltaY > 0){ 
+        // scroll down
+        if (containerTrack.offsetY >= bottomLimit) {
+          setContainerTrack(prev=>{
+            return {offsetY: prev.offsetY - 30}
+          })
+        }
+      } else { 
+        // scroll up
+        console.log(containerTrack.offsetY <= -30)
+        if (containerTrack.offsetY <= -30) {
+          setContainerTrack(prev=>{
+        // scroll up
+            return {offsetY: prev.offsetY + 30}
+          });
         }
       }
-      
-      if (parentContainer.matches(":hover")) {
-        addEventListener("wheel", scrollTrack);
-      }
-
-      return () => {
-        removeEventListener("wheel", scrollTrack);
-      }
     }
-  }, [containerTrack])
+
+    worksContainer!.addEventListener("wheel", scrollEvent);
+    
+    return () => {
+      removeEventListener("wheel", scrollEvent);
+    }
+  }, [])
 
   return (
     <div style={fadeInTransition} id={'works-container'} className={styles['works-container']}>
