@@ -1,10 +1,8 @@
 .nav-options {
   position: relative;
-  padding-top: 25px;
-  padding-left: 10px;
+  padding-bottom: 10px;
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  gap: var(--gap-medium);
   font-size: var(--fs-nav-options);
   font-family: var(--font-inter);
   font-weight: 400;
@@ -12,7 +10,6 @@
 }
 .nav-option {
   position: relative;
-  padding-right: 30px;
   width: fit-content;
   cursor: pointer;
   list-style-type: none;
