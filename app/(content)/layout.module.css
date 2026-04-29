@@ -49,7 +49,7 @@
 }
 
 .footer-items {
-  padding-right: calc(5% - 35px);
+  padding-right: calc(10% - 10px);
   display: flex;
   gap: 30px;
   justify-content: end;
