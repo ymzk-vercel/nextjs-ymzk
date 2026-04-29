@@ -34,7 +34,6 @@
   color: var(--foreground);
   background-color: var(--color-gray);
   transition: .1s ease-in;
-  mix-blend-mode: difference;
 }
 
 .date {
