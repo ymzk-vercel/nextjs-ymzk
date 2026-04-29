@@ -2,11 +2,14 @@
 
 import styles from './worksContent.module.css';
 import WorksItem from "./worksItem";
+import WorksPopUp from '@/app/components/worksPopUp/worksPopUp';
 import { type Works } from '@/sanity/lib/types';
 import { SanityDocument } from "next-sanity";
 import { useEffect, useState } from 'react';
 
 export default function WorksContent({data}:{data : SanityDocument}) {
+  const [popUp, setPopUp] = useState(false);
+  const [popUpData, setPopUpData] = useState<Works | undefined>(undefined);
   const [containerTrack, setContainerTrack] = useState({
     offsetY: 0
   });
@@ -28,12 +31,11 @@ export default function WorksContent({data}:{data : SanityDocument}) {
 
     function scrollEvent(event:WheelEvent) {
       const parentRect = worksContainer?.getBoundingClientRect();
-      const bottomLimit =  ((parentRect!.height * .50) - itemsContainer!.scrollHeight);
+      const bottomLimit =  ((parentRect!.height * .60) - itemsContainer!.scrollHeight);
 
       if (event.deltaY > 0){ 
         // scroll down
         setContainerTrack(prev=>{
-          console.log('currentOffset:',prev.offsetY)
           if (prev.offsetY >= bottomLimit) {
             return {offsetY: prev.offsetY - 30}
           } else return {...prev}
@@ -41,7 +43,6 @@ export default function WorksContent({data}:{data : SanityDocument}) {
       } else { 
         // scroll up
         setContainerTrack(prev=>{
-          console.log('currentOffset:',prev.offsetY)
           if (prev.offsetY <= -30) {
             return {offsetY: prev.offsetY + 30}
           } else return {...prev}
@@ -55,15 +56,26 @@ export default function WorksContent({data}:{data : SanityDocument}) {
       removeEventListener("wheel", scrollEvent);
     }
   }, [])
+  
+  function getDataOnClick(works:Works) {
+    setPopUpData(works)
+  }
+
+  function displayPopUp() {
+    setPopUp(prev=>!prev)
+  }
 
   return (
-    <div style={fadeInTransition} id={'works-container'} className={styles['works-container']}>
-      <div style={scrollAnimation} id={'items-container'} className={styles['items-container']}>
-        {data ? data.map((works: Works)=> {
-            return (<WorksItem key={works._id} works={works}/>) 
-          }) : null
-        }
+    <>
+      {popUp && popUpData ? <WorksPopUp displayPopUp={displayPopUp} data={popUpData} /> : null}
+      <div style={fadeInTransition} id={'works-container'} className={styles['works-container']}>
+        <div style={scrollAnimation} id={'items-container'} className={styles['items-container']}>
+          {data ? data.map((works: Works)=> {
+              return (<WorksItem key={works._id} displayPopUp={displayPopUp} getDataOnClick={getDataOnClick} works={works}/>) 
+            }) : null
+          }
+        </div>
       </div>
-    </div>
+    </>
   )
 }

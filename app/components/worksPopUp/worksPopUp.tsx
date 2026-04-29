@@ -6,14 +6,14 @@ import { type Works } from '@/sanity/lib/types';
 
 export default function WorksPopUp({
   displayPopUp, 
-  works
+  data
 }:{
   displayPopUp:()=>void, 
-  works: Works
+  data: Works
 }){
 
   function setTag() {
-    switch (works.type) {
+    switch (data.type) {
       case 'Book':
         return <span className={styles['tag']}>BOOK</span>
       case 'Commission':
@@ -25,7 +25,7 @@ export default function WorksPopUp({
     }
   }
 
-  const displayDate = works.publishedAt.replace(/-/g, ".");
+  const displayDate = data.publishedAt.replace(/-/g, ".");
 
   return (
     <div className={styles['popup']}>
@@ -38,8 +38,8 @@ export default function WorksPopUp({
 
         <div className={styles['popup-content-wrapper']}>
           <div className={styles['popup-header']}>
-            <a href={works.link} className={styles['title']} target='_'>
-              <h3>{works.title} </h3>
+            <a href={data.link} className={styles['title']} target='_'>
+              <h3>{data.title} </h3>
               <RedirectBig />
             </a>
             {setTag()}
@@ -51,11 +51,11 @@ export default function WorksPopUp({
             </div>
             <div className={styles['body-item']}>
               <h4>Content</h4>
-              <p>{works.tags}</p>
+              <p>{data.tags}</p>
             </div>
             <div className={styles['body-item']}>
               <h4>Published</h4>
-              <a href={works.link} target='_'>
+              <a href={data.link} target='_'>
                 <RedirectSmall />
               </a>
               <p>{displayDate}</p>
