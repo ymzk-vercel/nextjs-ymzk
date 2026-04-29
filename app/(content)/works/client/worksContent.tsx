@@ -21,39 +21,31 @@ export default function WorksContent({data}:{data : SanityDocument}) {
   };
 
   useEffect(()=>{
-    // Get values
     const worksContainer = document.getElementById('works-container');
-    const scrollTrack = document.getElementById('items-container');
+    const itemsContainer = document.getElementById('items-container');
     
-    if (!scrollTrack && !worksContainer) return;
+    if (!itemsContainer && !worksContainer) return;
 
     function scrollEvent(event:WheelEvent) {
-      const containerRect = scrollTrack?.getBoundingClientRect();
       const parentRect = worksContainer?.getBoundingClientRect();
-      const bottomLimit =  (-1 * scrollTrack!.scrollHeight);
-      
-      // get view height of element AND actual height
-      console.log('height',scrollTrack?.scrollHeight)
-      console.log('bottomlimit',bottomLimit)
-      console.log('offset',containerTrack.offsetY)
-      console.log('containerbot',containerRect?.bottom)
+      const bottomLimit =  ((parentRect!.height * .50) - itemsContainer!.scrollHeight);
 
       if (event.deltaY > 0){ 
         // scroll down
-        if (containerTrack.offsetY >= bottomLimit) {
-          setContainerTrack(prev=>{
+        setContainerTrack(prev=>{
+          console.log('currentOffset:',prev.offsetY)
+          if (prev.offsetY >= bottomLimit) {
             return {offsetY: prev.offsetY - 30}
-          })
-        }
+          } else return {...prev}
+        })
       } else { 
         // scroll up
-        console.log(containerTrack.offsetY <= -30)
-        if (containerTrack.offsetY <= -30) {
-          setContainerTrack(prev=>{
-        // scroll up
+        setContainerTrack(prev=>{
+          console.log('currentOffset:',prev.offsetY)
+          if (prev.offsetY <= -30) {
             return {offsetY: prev.offsetY + 30}
-          });
-        }
+          } else return {...prev}
+        });
       }
     }
 
