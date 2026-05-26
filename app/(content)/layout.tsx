@@ -11,10 +11,7 @@ export default async function ContentLayout({
   return (
     <>
       <div className={styles['page-container']}>
-        <nav className={styles['nav-container']}>
-          <h1 className={styles['nav-header']}>HEAD</h1>
-          <MainNav />
-        </nav>
+        <MainNav />
         <main className={styles['main-container']}>
           <Suspense fallback={<>Loading</>}>
             {children}

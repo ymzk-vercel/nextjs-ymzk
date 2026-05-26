@@ -8,6 +8,7 @@
 }
 
 .items-container {
+  padding-top: var(--size-32);
   padding-right: 10%;
   padding-left: 10%;
   position: absolute;

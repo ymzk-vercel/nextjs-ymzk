@@ -1,13 +1,13 @@
 'use client';
 
-import styles from './worksContent.module.css';
+import styles from './worksList.module.css';
 import WorksItem from "./worksItem";
-import WorksPopUp from '@/app/components/worksPopUp/worksPopUp';
+import WorksPopUp from '@/app/(content)/works/worksPopUp/worksPopUp';
 import { type Works } from '@/sanity/lib/types';
 import { SanityDocument } from "next-sanity";
 import { useEffect, useState } from 'react';
 
-export default function WorksContent({data}:{data : SanityDocument}) {
+export default function WorksList({data}:{data : SanityDocument}) {
   const [popUp, setPopUp] = useState(false);
   const [popUpData, setPopUpData] = useState<Works | undefined>(undefined);
   const [containerTrack, setContainerTrack] = useState({

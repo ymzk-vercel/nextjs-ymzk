@@ -1,20 +1,13 @@
 import styles from './page.module.css';
-import { type SanityDocument } from "next-sanity";
-import { sanityFetch } from '@/sanity/lib/live';
+import { type Works } from '@/sanity/lib/types';
+import { SanityDocument } from "next-sanity";
 
-const ABOUT_QUERY = ``;
-
-export default async function Page() {
-
-  // const {data: works} = await sanityFetch({query: POSTS_QUERY});
-
-  const style = {
-    animation: 'fadeIn .5s ease-in forwards'
-  };
+export default async function WorksContent() {
 
   return (
-    <div style={style} className={styles['items-container']}>
-      ABOUT
+    <div style={fadeInTransition} id={'works-container'} className={styles['works-container']}>
+      <div style={scrollAnimation} id={'items-container'} className={styles['items-container']}>
+      </div>
     </div>
   )
-} 
+}

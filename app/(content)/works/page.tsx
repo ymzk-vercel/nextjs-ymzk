@@ -1,4 +1,4 @@
-import WorksContent from './client/worksContent';
+import WorksContent from './worksList/worksList';
 import { sanityFetch } from '@/sanity/lib/live';
 
 const WORKS_QUERY = `*[

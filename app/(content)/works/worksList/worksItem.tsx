@@ -22,12 +22,10 @@ export default function WorksItem({
   }
 
   return (
-    <>
-      <div onClick={onItemClick} className={styles['item']}>
-        <span className={styles['date']}>{displayDate}</span>
-        <h2 className={styles['title']}>{works.title}</h2>
-        <span className={styles['type']}>{works.type}</span>
-      </div>
-    </>
+    <div onClick={onItemClick} className={styles['item']}>
+      <span className={styles['date']}>{displayDate}</span>
+      <h2 className={styles['title']}>{works.title}</h2>
+      <span className={styles['type']}>{works.type}</span>
+    </div>
   )
 } 

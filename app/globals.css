@@ -6,14 +6,31 @@
   background-color: var(--background);
 
   --color-black: #0a0a0c;
-  --color-gray: #e2dedc79;
+  --color-gray: #d4d0cd79;
+  
+  --size-8: .5rem;
+  --size-12: .75rem;
+  --size-16: 1rem;
+  --size-18: 1.125rem;
+  --size-20: 1.25rem;
+  --size-24: 1.5rem;
+  --size-32: 2rem;
+  --size-48: 3rem;
+  --size-56: 3.5rem;
+  --size-64: 4rem;
+  
+  --spacing-8: 8px;
+  --spacing-16: 16px;
+  --spacing-32: 32px;
+  --spacing-48: 48px;
+  --spacing-56: 56px;
+  --spacing-64: 64px;
 
-  --fs-header: 64px;
-  --fs-nav-options: 20px;
-  --fs-body: 18px;
-  --fs-worktype: 12px;
+  --fs-title: var(--size-48); 
+  --fs-header: var(--size-56);
+  --fs-nav: var(--size-18);
+  --fs-subtext: var(--size-12);
 
-  --gap-medium: 60px;
 
   --font-inter: "Inter";
   --font-schibstedGrotesk: "Schibsted-Grotesk";
@@ -23,6 +40,7 @@
   :root {
     --background: #0a0a0c;
     --foreground: #F0ECEB;
+    --color-gray: #5c5a5979;
   }
 }
 
@@ -49,12 +67,6 @@ p {
 img, picture, svg, video {
   display: block;
   max-width: 100%;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }
 
 @keyframes lineGrow {

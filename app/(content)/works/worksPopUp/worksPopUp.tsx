@@ -1,5 +1,5 @@
 import styles from './worksPopUp.module.css';
-import { RedirectBig, RedirectSmall } from '../svgIcons/svgIcons';
+import { RedirectBig, RedirectSmall } from '../../../components/svgIcons/svgIcons';
 import { RiCloseLargeLine } from "react-icons/ri";
 
 import { type Works } from '@/sanity/lib/types';
