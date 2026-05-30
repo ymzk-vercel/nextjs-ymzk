@@ -26,6 +26,7 @@
   transform: translate(-50%, -50%);
   background-color: var(--background);
   z-index: 4;
+  overflow-y: auto;
 }
 
 .close-button {
@@ -34,6 +35,7 @@
   left: 35px;
   font-size: 48px;
   cursor: pointer;
+  z-index: 10;
 }
 
 .popup-content-wrapper {
@@ -60,15 +62,18 @@
   & .title {
     position: relative;
     display: inline;
-    color: inherit;
     text-decoration: none;
   }
   & .title > h3 {
     display: inline;
+    font-size: var(--size-64);
   }
   & .title > svg {
     display: inline;
     color: var(--foreground);
+  }
+  & .title:visited {
+    color: var(--color-clicked-link); 
   }
 
   & .tag {
@@ -133,6 +138,9 @@
   }
 }
 
+.body-item > a:visited {
+  color: var(--color-clicked-link); 
+}
 
 
 

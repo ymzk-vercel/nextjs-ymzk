@@ -7,7 +7,9 @@
 
   --color-black: #0a0a0c;
   --color-gray: #d4d0cd79;
+  --color-clicked-link: rgb(255, 98, 145);
   
+  /* cap browser font size at 32px */ 
   --size-8: .5rem;
   --size-12: .75rem;
   --size-16: 1rem;
@@ -26,8 +28,8 @@
   --spacing-56: 56px;
   --spacing-64: 64px;
 
-  --fs-title: var(--size-48); 
-  --fs-header: var(--size-56);
+  --fs-title: clamp(48px, var(--size-48), 96px); 
+  --fs-header: clamp(56px, var(--size-56), 112px);
   --fs-nav: var(--size-18);
   --fs-subtext: var(--size-12);
 
@@ -41,6 +43,7 @@
     --background: #0a0a0c;
     --foreground: #F0ECEB;
     --color-gray: #5c5a5979;
+    --color-clicked-link: rgb(238, 155, 180);
   }
 }
 
@@ -62,6 +65,10 @@ body {
 
 p {
   font-family: var(--font-schibstedGrotesk);
+}
+
+a, span, p {
+  font-size: clamp(16px, 1rem, 32px);
 }
 
 img, picture, svg, video {
