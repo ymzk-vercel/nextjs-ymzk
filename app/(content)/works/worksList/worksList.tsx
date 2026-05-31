@@ -11,7 +11,7 @@ import { scrollHook } from '@/app/hooks/scrollHook';
 export default function WorksList({data}:{data : SanityDocument}) {
   const [popUp, setPopUp] = useState(false);
   const [popUpData, setPopUpData] = useState<Works | undefined>(undefined);
-  const {fadeInTransition, scrollAnimation} = scrollHook();
+  const {fadeInTransition, scrollAnimation} = scrollHook('works-container', 'items-container');
   
   function getDataOnClick(works:Works) {
     setPopUpData(works)
@@ -27,7 +27,7 @@ export default function WorksList({data}:{data : SanityDocument}) {
       <div style={fadeInTransition} id={'works-container'} className={styles['works-container']}>
         <div style={scrollAnimation} id={'items-container'} className={styles['items-container']}>
           {data ? data.map((works: Works, index:number)=> {
-              return (<WorksItem key={works._id} displayPopUp={displayPopUp} getDataOnClick={getDataOnClick} works={works}/>) 
+              return (<WorksItem key={works._id+'_'+index} displayPopUp={displayPopUp} getDataOnClick={getDataOnClick} works={works}/>) 
             }) : null
           }
         </div>
