@@ -20,9 +20,9 @@ export default async function ContentLayout({
       </div>
       <footer className={styles['footer-container']}>
         <div className={styles['footer-items']}>
-          <a href=''>Blusky.</a>
-          <a href=''>X.</a>
-          <a href=''>Discord.</a>
+          <a target="_" href='https://www.tumblr.com/bucktoothymzkr'>tumblr.</a>
+          <a target="_" href='https://x.com/ymzkr445'>X.</a>
+          <a target="_" href='https://alexleigh.carrd.co/'>carrd.</a>
         </div>
       </footer>
     </>
