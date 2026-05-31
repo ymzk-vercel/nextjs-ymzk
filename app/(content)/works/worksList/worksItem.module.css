@@ -10,16 +10,6 @@
   transition: .4s ease-out;
   cursor: pointer;
 }
-.item::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  width: 100%;
-  background-color: var(--foreground);
-}
 .item::before {
   content: '';
   position: absolute;
