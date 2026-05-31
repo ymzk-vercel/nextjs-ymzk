@@ -1,6 +1,7 @@
 import styles from './worksPopUp.module.css';
 import { RedirectBig, RedirectSmall } from '../../../components/svgIcons/svgIcons';
 import { RiCloseLargeLine } from "react-icons/ri";
+import { PortableText } from '@portabletext/react';
 
 import { type Works } from '@/sanity/lib/types';
 
@@ -47,7 +48,9 @@ export default function WorksPopUp({
           <div className={styles['popup-body']}>
             <div className={styles['body-item']}>
               <h4>Summary</h4>
-              <p></p>
+                {data.summary ? <PortableText value={data.summary} /> :
+                  <p>No summary available.</p>
+                }
             </div>
             <div className={styles['body-item']}>
               <h4>Content</h4>
