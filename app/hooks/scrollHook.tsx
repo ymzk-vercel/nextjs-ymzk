@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export function scrollHook() {
+export function scrollHook(parentContainer:string, scrollableContainer:string) {
   const [containerTrack, setContainerTrack] = useState({
     offsetY: 0
   });
@@ -15,14 +15,14 @@ export function scrollHook() {
   };
 
   useEffect(()=>{
-    const worksContainer = document.getElementById('works-container');
-    const itemsContainer = document.getElementById('items-container');
+    const parentContainerId = document.getElementById(parentContainer);
+    const scrollableContainerId = document.getElementById(scrollableContainer);
     
-    if (!itemsContainer && !worksContainer) return;
+    if (!scrollableContainerId && !parentContainerId) return;
 
     function scrollEvent(event:WheelEvent) {
-      const parentRect = worksContainer?.getBoundingClientRect();
-      const bottomLimit =  ((parentRect!.height * .60) - itemsContainer!.scrollHeight);
+      const parentRect = parentContainerId?.getBoundingClientRect();
+      const bottomLimit =  ((parentRect!.height * .60) - scrollableContainerId!.scrollHeight);
 
       if (event.deltaY > 0){ 
         // scroll down
@@ -41,7 +41,7 @@ export function scrollHook() {
       }
     }
 
-    worksContainer!.addEventListener("wheel", scrollEvent);
+    parentContainerId!.addEventListener("wheel", scrollEvent);
     
     return () => {
       removeEventListener("wheel", scrollEvent);
