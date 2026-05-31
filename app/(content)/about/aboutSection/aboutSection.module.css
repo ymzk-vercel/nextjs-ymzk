@@ -1,0 +1,26 @@
+.sections-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-32);
+  height: 100vh;
+  top: -1px;
+  width: 100%;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.section-block {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.section-info {
+  width: 700px;
+}
+.section-info > ul {
+  padding-left: 1rem;
+}

@@ -1,13 +1,15 @@
-import styles from './page.module.css';
-import { type Works } from '@/sanity/lib/types';
-import { SanityDocument } from "next-sanity";
+import AboutSection from './aboutSection/aboutSection';
+import { sanityFetch } from '@/sanity/lib/live';
+
+const ABOUT_QUERY = `*[
+  _type == "about"
+]|order(placement asc){_id, label, info}`;
 
 export default async function WorksContent() {
-
+  
+  const {data} = await sanityFetch({query: ABOUT_QUERY});
+  
   return (
-    <div style={fadeInTransition} id={'works-container'} className={styles['works-container']}>
-      <div style={scrollAnimation} id={'items-container'} className={styles['items-container']}>
-      </div>
-    </div>
+    <AboutSection data={data}/>
   )
 }
