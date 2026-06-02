@@ -39,7 +39,7 @@ export default function WorksPopUp({
 
         <div className={styles['popup-content-wrapper']}>
           <div className={styles['popup-header']}>
-            <a href={data.link} className={styles['title']} target='_'>
+            <a href={data.link[0]} className={styles['title']} target='_'>
               <h3>{data.title} </h3>
               <RedirectBig />
             </a>
@@ -58,9 +58,13 @@ export default function WorksPopUp({
             </div>
             <div className={styles['body-item']}>
               <h4>Published</h4>
-              <a href={data.link} target='_'>
-                <RedirectSmall />
-              </a>
+              {data.link.map((item, index)=>{
+                return (
+                  <a href={item} target='_' key={index+item}>
+                    <RedirectSmall />
+                  </a>
+                )})
+              }
               <p>{displayDate}</p>
             </div>
           </div>
