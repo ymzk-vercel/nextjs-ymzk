@@ -5,7 +5,7 @@ const ABOUT_QUERY = `*[
   _type == "about"
 ]|order(placement asc){_id, label, info}`;
 
-export default async function WorksContent() {
+export default async function AboutContent() {
   
   const {data} = await sanityFetch({query: ABOUT_QUERY});
   

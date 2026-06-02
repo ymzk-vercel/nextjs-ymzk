@@ -1,4 +1,4 @@
-import WorksContent from './worksList/worksList';
+import WorksList from './worksList/worksList';
 import { sanityFetch } from '@/sanity/lib/live';
 
 const WORKS_QUERY = `*[
@@ -10,6 +10,6 @@ export default async function Page() {
   const {data} = await sanityFetch({query: WORKS_QUERY});
 
   return (
-    <WorksContent data={data} />
+    <WorksList data={data} />
   )
 } 
