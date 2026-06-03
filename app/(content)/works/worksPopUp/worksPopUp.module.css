@@ -138,9 +138,14 @@
   }
 }
 
-.body-item > a:visited {
+.body-link {
+  position: relative;
+  display: flex;
+  align-items: end;
+  gap: .3em;
+  width: fit-content;
+}
+.body-link:visited {
   color: var(--color-clicked-link); 
 }
-
-
 

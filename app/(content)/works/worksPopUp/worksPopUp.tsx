@@ -58,13 +58,15 @@ export default function WorksPopUp({
             </div>
             <div className={styles['body-item']}>
               <h4>Published</h4>
-              {data.link.map((item, index)=>{
-                return (
-                  <a href={item} target='_' key={index+item}>
-                    <RedirectSmall />
-                  </a>
-                )})
-              }
+                {data.link.map((item, index)=>{
+                  let text = item.slice(8).split('/')[0];
+                  return (
+                    <a href={item} target='_' key={index+item} className={styles['body-link']}>
+                      <span>{text}</span>
+                      <RedirectSmall />
+                    </a>
+                  )})
+                }
               <p>{displayDate}</p>
             </div>
           </div>
