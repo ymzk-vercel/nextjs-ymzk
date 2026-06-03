@@ -3,7 +3,7 @@ import { sanityFetch } from '@/sanity/lib/live';
 
 const ABOUT_QUERY = `*[
   _type == "about"
-]|order(placement asc){_id, label, info}`;
+]|order(placement asc){_id, label, description}`;
 
 export default async function AboutContent() {
   
