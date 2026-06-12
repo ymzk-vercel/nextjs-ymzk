@@ -8,34 +8,40 @@
 }
 
 .sections-wrapper {
+  padding-left: 8%;
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: var(--spacing-32);
 }
 
 .section-block {
   padding: var(--spacing-32);
+  position: relative;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  gap: var(--spacing-32);
   width: 100%;
-  max-width: 1200px;
+  max-width: 900px;
 }
 
 .section-label {
   width: 150px;
 }
 .section-info {
-  width: clamp(500px, 100%, 900px);
+  width: clamp(500px, 100%, 600px);
 }
 .section-info > ul {
   padding-left: 1rem;
 }
 
 @media (width < 600px) {
+  .sections-wrapper {
+    padding-left: 0px;
+  }
   .section-block {
     flex-direction: column;
+    gap: var(--spacing-16);
   }
   .section-label {
     width: 100%;

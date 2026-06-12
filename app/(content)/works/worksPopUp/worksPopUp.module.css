@@ -43,7 +43,6 @@
   padding-block: 80px;
   position: relative;
   width: 80%;
-  height: calc(100% - 1px);
   max-width: 950px;
 }
 
