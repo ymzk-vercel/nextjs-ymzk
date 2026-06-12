@@ -1,5 +1,6 @@
 import AboutSection from './aboutSection/aboutSection';
 import { sanityFetch } from '@/sanity/lib/live';
+import { SanityDocument } from 'next-sanity';
 
 const ABOUT_QUERY = `*[
   _type == "about"
@@ -10,6 +11,6 @@ export default async function AboutContent() {
   const {data} = await sanityFetch({query: ABOUT_QUERY});
   
   return (
-    <AboutSection data={data}/>
+    <AboutSection data={data as SanityDocument}/>
   )
 }

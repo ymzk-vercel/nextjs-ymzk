@@ -1,5 +1,6 @@
 import WorksList from './worksList/worksList';
 import { sanityFetch } from '@/sanity/lib/live';
+import { SanityDocument } from 'next-sanity';
 
 const WORKS_QUERY = `*[
     _type == "works"
@@ -7,9 +8,11 @@ const WORKS_QUERY = `*[
   ]|order(publishedAt desc){_id, title, slug, type, publishedAt, link, tags, summary}`;
 
 export default async function Page() {
-  const {data} = await sanityFetch({query: WORKS_QUERY});
+  const {data} = await sanityFetch({query: WORKS_QUERY}) ;
 
   return (
-    <WorksList data={data} />
+    <>
+    <WorksList data={data as SanityDocument} />
+    </>
   )
 } 

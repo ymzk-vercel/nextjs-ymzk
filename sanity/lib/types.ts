@@ -25,7 +25,7 @@ export type Works = {
   slug: Slug;
   type: "Fanfic" | "Commission" | "Book" | "Original";
   publishedAt: string;
-  link: string;
+  link: Array<string>;
   tags?: Array<string>;
   summary?: Array<{
     children?: Array<{
@@ -61,7 +61,7 @@ export type About = {
   _rev: string;
   placement?: number;
   label: string;
-  info: Array<{
+  description: Array<{
     children?: Array<{
       marks?: Array<string>;
       text?: string;
